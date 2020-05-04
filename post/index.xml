@@ -2,69 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Notre-Dame de Paris</title>
-    <link>https://example.com/post/</link>
+    <link>https://flgt618.github.io/post/</link>
     <description>Recent content in Articles on Notre-Dame de Paris</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate>
     
-	<atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://flgt618.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Chapter VI: Esmeralda</title>
-      <link>https://example.com/post/chapter-6/</link>
-      <pubDate>Fri, 14 Apr 2017 11:25:05 -0400</pubDate>
+      <title>Chapter I: The Grand Hall</title>
+      <link>https://flgt618.github.io/post/chapter-1/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
       
-      <guid>https://example.com/post/chapter-6/</guid>
-      <description>We are delighted to be able to inform the reader, that during the whole of this scene, Gringoire and his piece had stood firm. His actors, spurred on by him, had not ceased to spout his comedy, and he had not ceased to listen to it. He had made up his mind about the tumult, and was determined to proceed to the end, not giving up the hope of a return of attention on the part of the public.</description>
-    </item>
-    
-    <item>
-      <title>Chapter V: Quasimodo</title>
-      <link>https://example.com/post/chapter-5/</link>
-      <pubDate>Thu, 13 Apr 2017 11:15:58 -0400</pubDate>
-      
-      <guid>https://example.com/post/chapter-5/</guid>
-      <description>In the twinkling of an eye, all was ready to execute Coppenole’s idea. Bourgeois, scholars and law clerks all set to work. The little chapel situated opposite the marble table was selected for the scene of the grinning match. A pane broken in the pretty rose window above the door, left free a circle of stone through which it was agreed that the competitors should thrust their heads. In order to reach it, it was only necessary to mount upon a couple of hogsheads, which had been produced from I know not where, and perched one upon the other, after a fashion.</description>
-    </item>
-    
-    <item>
-      <title>Chapter IV: Master Jacques Coppenole</title>
-      <link>https://example.com/post/chapter-4/</link>
-      <pubDate>Wed, 12 Apr 2017 11:14:48 -0400</pubDate>
-      
-      <guid>https://example.com/post/chapter-4/</guid>
-      <description>While the pensioner of Ghent and his eminence were exchanging very low bows and a few words in voices still lower, a man of lofty stature, with a large face and broad shoulders, presented himself, in order to enter abreast with Guillaume Rym; one would have pronounced him a bull-dog by the side of a fox. His felt doublet and leather jerkin made a spot on the velvet and silk which surrounded him.</description>
-    </item>
-    
-    <item>
-      <title>Chapter III: Monsieur the Cardinal</title>
-      <link>https://example.com/post/chapter-3/</link>
-      <pubDate>Tue, 11 Apr 2017 11:13:32 -0400</pubDate>
-      
-      <guid>https://example.com/post/chapter-3/</guid>
-      <description>Poor Gringoire! the din of all the great double petards of the Saint-Jean, the discharge of twenty arquebuses on supports, the detonation of that famous serpentine of the Tower of Billy, which, during the siege of Paris, on Sunday, the twenty-sixth of September, 1465, killed seven Burgundians at one blow, the explosion of all the powder stored at the gate of the Temple, would have rent his ears less rudely at that solemn and dramatic moment, than these few words, which fell from the lips of the usher, “His eminence, Monseigneur the Cardinal de Bourbon.</description>
-    </item>
-    
-    <item>
-      <title>Chapter II: Pierre Gringoire</title>
-      <link>https://example.com/post/chapter-2/</link>
-      <pubDate>Mon, 10 Apr 2017 11:00:59 -0400</pubDate>
-      
-      <guid>https://example.com/post/chapter-2/</guid>
-      <description>Nevertheless, as be harangued them, the satisfaction and admiration unanimously excited by his costume were dissipated by his words; and when he reached that untoward conclusion: “As soon as his illustrious eminence, the cardinal, arrives, we will begin,” his voice was drowned in a thunder of hooting.
-“Begin instantly! The mystery! the mystery immediately!” shrieked the people. And above all the voices, that of Johannes de Molendino was audible, piercing the uproar like the fife’s derisive serenade: “Commence instantly!</description>
+      <guid>https://flgt618.github.io/post/chapter-1/</guid>
+      <description>多源最短路径算法 Floyd算法  思路
+ 假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式： $$ d[u][v]=min(d[u][v],d[u][k]+d[k][v]) $$
+ 代码实现
+ for (int k = 1; k &amp;lt;= n; k++) for (int i = 1; i &amp;lt;= n; i++) for (int j = 1; j &amp;lt;= n; j++) dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);  潜在疑惑
+ 由于d[i][k]，d[k][j]在不断更新，而不是恒定的最小值，所以如何保证d[i][j]在最后一次更新的时候，d[i][k]，d[k][j]一定是最小的 ?
+  令任意两点i和j之间的路径上可选择经过的结点集合中，桥点编号最大的是k，当k=x的时候，d[i][j]得到最小值。
+  设i-x中的桥点编号最大的为$x_1$ ,x-j中编号最大的为$x_2$
+  易得x&amp;gt;$x_1$ ,x&amp;gt;$x_2$ ①
+  假设此时命题成立，则x=$x_1$时，d[i][x]最小，x=$x_2$ 时，d[x][j]最小
+  由此可以得到x=k的时候d[i][x]+d[x][j]已经是最小了,那么e[i][j]=min(e[i][j]，e[i][x]+e[x][j])必然可以得到最小值</description>
     </item>
     
     <item>
       <title>Chapter I: The Grand Hall</title>
-      <link>https://example.com/post/chapter-1/</link>
+      <link>https://flgt618.github.io/post/newblog/</link>
       <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
       
-      <guid>https://example.com/post/chapter-1/</guid>
-      <description>Three hundred and forty-eight years, six months, and nineteen days ago to-day, the Parisians awoke to the sound of all the bells in the triple circuit of the city, the university, and the town ringing a full peal.
-The sixth of January, 1482, is not, however, a day of which history has preserved the memory. There was nothing notable in the event which thus set the bells and the bourgeois of Paris in a ferment from early morning.</description>
+      <guid>https://flgt618.github.io/post/newblog/</guid>
+      <description>多源最短路径算法 Floyd算法  思路
+ 假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式： $$ d[u][v]=min(d[u][v],d[u][k]+d[k][v]) $$
+ 代码实现
+ for (int k = 1; k &amp;lt;= n; k++) for (int i = 1; i &amp;lt;= n; i++) for (int j = 1; j &amp;lt;= n; j++) dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);  潜在疑惑
+ 由于d[i][k]，d[k][j]在不断更新，而不是恒定的最小值，所以如何保证d[i][j]在最后一次更新的时候，d[i][k]，d[k][j]一定是最小的 ?
+  令任意两点i和j之间的路径上可选择经过的结点集合中，桥点编号最大的是k，当k=x的时候，d[i][j]得到最小值。
+  设i-x中的桥点编号最大的为$x_1$ ,x-j中编号最大的为$x_2$
+  易得x&amp;gt;$x_1$ ,x&amp;gt;$x_2$ ①
+  假设此时命题成立，则x=$x_1$时，d[i][x]最小，x=$x_2$ 时，d[x][j]最小
+  由此可以得到x=k的时候d[i][x]+d[x][j]已经是最小了,那么e[i][j]=min(e[i][j]，e[i][x]+e[x][j])必然可以得到最小值</description>
     </item>
     
   </channel>

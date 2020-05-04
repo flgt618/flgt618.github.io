@@ -33,8 +33,8 @@
     <meta property="og:title" content="Notre-Dame de Paris" />
 <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com/" />
-<meta property="og:updated_time" content="2017-04-14T11:25:05-04:00" />
+<meta property="og:url" content="https://flgt618.github.io/" />
+<meta property="og:updated_time" content="2017-04-09T10:58:08-04:00" />
 <meta itemprop="name" content="Notre-Dame de Paris">
 <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Notre-Dame de Paris"/>
@@ -48,11 +48,11 @@
 
   
   
-  <header class="cover bg-top" style="background-image: url('https://example.com/images/gohugo-default-sample-hero-image.jpg');">
+  <header class="cover bg-top" style="background-image: url('https://flgt618.github.io/images/gohugo-default-sample-hero-image.jpg');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="https://example.com" class="f3 fw2 hover-white no-underline white-90 dib">
+    <a href="https://flgt618.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
       Notre-Dame de Paris
     </a>
     <div class="flex-l items-center">
@@ -143,21 +143,30 @@
           
         
         <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
-          <a href="https://example.com/post/chapter-6/" class="db grow">
-            <img src="https://example.com/images/esmeralda.jpg" class="img" alt="image from Chapter VI: Esmeralda">
+          <a href="https://flgt618.github.io/post/chapter-1/" class="db grow">
+            <img src="https://flgt618.github.io/images/Pope-Edouard-de-Beaumont-1844.jpg" class="img" alt="image from Chapter I: The Grand Hall">
           </a>
         </div>
       
       <div class="blah w-100 w-60-ns pl3-ns">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://example.com/post/chapter-6/" class="color-inherit dim link">
-            Chapter VI: Esmeralda
+          <a href="https://flgt618.github.io/post/chapter-1/" class="color-inherit dim link">
+            Chapter I: The Grand Hall
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          We are delighted to be able to inform the reader, that during the whole of this scene, Gringoire and his piece had stood firm. His actors, spurred on by him, had not ceased to spout his comedy, and he had not ceased to listen to it. He had made up his mind about the tumult, and was determined to proceed to the end, not giving up the hope of a return of attention on the part of the public.
+          多源最短路径算法 Floyd算法  思路
+ 假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式： $$ d[u][v]=min(d[u][v],d[u][k]+d[k][v]) $$
+ 代码实现
+ for (int k = 1; k &lt;= n; k++) for (int i = 1; i &lt;= n; i++) for (int j = 1; j &lt;= n; j++) dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);  潜在疑惑
+ 由于d[i][k]，d[k][j]在不断更新，而不是恒定的最小值，所以如何保证d[i][j]在最后一次更新的时候，d[i][k]，d[k][j]一定是最小的 ?
+  令任意两点i和j之间的路径上可选择经过的结点集合中，桥点编号最大的是k，当k=x的时候，d[i][j]得到最小值。
+  设i-x中的桥点编号最大的为$x_1$ ,x-j中编号最大的为$x_2$
+  易得x&gt;$x_1$ ,x&gt;$x_2$ ①
+  假设此时命题成立，则x=$x_1$时，d[i][x]最小，x=$x_2$ 时，d[x][j]最小
+  由此可以得到x=k的时候d[i][x]+d[x][j]已经是最小了,那么e[i][j]=min(e[i][j]，e[i][x]+e[x][j])必然可以得到最小值
         </div>
-          <a href="https://example.com/post/chapter-6/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://flgt618.github.io/post/chapter-1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -172,40 +181,33 @@
   <div class="db pv4 ph3 ph0-l no-underline dark-gray">
     <div class="flex flex-column flex-row-ns">
       
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://example.com/post/chapter-5/" class="color-inherit dim link">
-            Chapter V: Quasimodo
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          In the twinkling of an eye, all was ready to execute Coppenole’s idea. Bourgeois, scholars and law clerks all set to work. The little chapel situated opposite the marble table was selected for the scene of the grinning match. A pane broken in the pretty rose window above the door, left free a circle of stone through which it was agreed that the competitors should thrust their heads. In order to reach it, it was only necessary to mount upon a couple of hogsheads, which had been produced from I know not where, and perched one upon the other, after a fashion.
+          
+        
+        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+          <a href="https://flgt618.github.io/post/newblog/" class="db grow">
+            <img src="https://flgt618.github.io/images/Pope-Edouard-de-Beaumont-1844.jpg" class="img" alt="image from Chapter I: The Grand Hall">
+          </a>
         </div>
-          <a href="https://example.com/post/chapter-5/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
       
-      <div class="blah w-100">
+      <div class="blah w-100 w-60-ns pl3-ns">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://example.com/post/chapter-4/" class="color-inherit dim link">
-            Chapter IV: Master Jacques Coppenole
+          <a href="https://flgt618.github.io/post/newblog/" class="color-inherit dim link">
+            Chapter I: The Grand Hall
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          While the pensioner of Ghent and his eminence were exchanging very low bows and a few words in voices still lower, a man of lofty stature, with a large face and broad shoulders, presented himself, in order to enter abreast with Guillaume Rym; one would have pronounced him a bull-dog by the side of a fox. His felt doublet and leather jerkin made a spot on the velvet and silk which surrounded him.
+          多源最短路径算法 Floyd算法  思路
+ 假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式： $$ d[u][v]=min(d[u][v],d[u][k]+d[k][v]) $$
+ 代码实现
+ for (int k = 1; k &lt;= n; k++) for (int i = 1; i &lt;= n; i++) for (int j = 1; j &lt;= n; j++) dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);  潜在疑惑
+ 由于d[i][k]，d[k][j]在不断更新，而不是恒定的最小值，所以如何保证d[i][j]在最后一次更新的时候，d[i][k]，d[k][j]一定是最小的 ?
+  令任意两点i和j之间的路径上可选择经过的结点集合中，桥点编号最大的是k，当k=x的时候，d[i][j]得到最小值。
+  设i-x中的桥点编号最大的为$x_1$ ,x-j中编号最大的为$x_2$
+  易得x&gt;$x_1$ ,x&gt;$x_2$ ①
+  假设此时命题成立，则x=$x_1$时，d[i][x]最小，x=$x_2$ 时，d[x][j]最小
+  由此可以得到x=k的时候d[i][x]+d[x][j]已经是最小了,那么e[i][j]=min(e[i][j]，e[i][x]+e[x][j])必然可以得到最小值
         </div>
-          <a href="https://example.com/post/chapter-4/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://flgt618.github.io/post/newblog/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -217,35 +219,6 @@
       </section>
 
       
-      <section class="w-100">
-        <h1 class="f3">More</h1>
-        
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://example.com/post/chapter-3/" class="link black dim">
-              Chapter III: Monsieur the Cardinal
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://example.com/post/chapter-2/" class="link black dim">
-              Chapter II: Pierre Gringoire
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://example.com/post/chapter-1/" class="link black dim">
-              Chapter I: The Grand Hall
-            </a>
-          </h2>
-        
-
-        
-        
-          <a href="https://example.com/post/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Articles</a>
-        
-        </section>
-      
 
       </div>
   
@@ -253,7 +226,7 @@
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://example.com" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://flgt618.github.io/" >
     &copy;  Notre-Dame de Paris 2020 
   </a>
     <div>
