@@ -35,7 +35,7 @@
 <meta itemprop="description" content="The Grand Hall">
 <meta itemprop="datePublished" content="2017-04-09T10:58:08-04:00" />
 <meta itemprop="dateModified" content="2017-04-09T10:58:08-04:00" />
-<meta itemprop="wordCount" content="84">
+<meta itemprop="wordCount" content="83">
 
 
 
@@ -162,25 +162,18 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h4 id="多源最短路径算法">多源最短路径算法</h4>
-<h5 id="floyd算法">Floyd算法</h5>
-<blockquote>
-<p>思路</p>
-</blockquote>
+    <div class="nested-copy-line-height lh-copy sans-serif bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h3 id="floyd算法">Floyd算法</h3>
+<h5 id="思路">思路</h5>
 <p>假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式：
 $$
 d[u][v]=min(d[u][v],d[u][k]+d[k][v])
 $$</p>
-<blockquote>
-<p>代码实现</p>
-</blockquote>
+<h5 id="代码实现">代码实现</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; k <span style="color:#f92672">&lt;=</span> n; k<span style="color:#f92672">++</span>)
 	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>)
 		<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>)
 			dis[i][j] <span style="color:#f92672">=</span> min(dis[i][j], dis[i][k] <span style="color:#f92672">+</span> dis[k][j]);
-</code></pre></div><blockquote>
-<p>潜在疑惑</p>
-</blockquote>
+</code></pre></div><h5 id="潜在疑惑">潜在疑惑</h5>
 <p>由于<code>d[i][k]</code>，<code>d[k][j]</code>在不断更新，而不是恒定的最小值，所以如何保证<code>d[i][j]</code>在最后一次更新的时候，<code>d[i][k]</code>，<code>d[k][j]</code>一定是最小的 ?</p>
 <ul>
 <li>
@@ -199,9 +192,7 @@ $$</p>
 <p>由此可以得到x=k的时候<code>d[i][x]+d[x][j]</code>已经是最小了,那么<code>e[i][j]=min(e[i][j]，e[i][x]+e[x][j])</code>必然可以得到最小值</p>
 </li>
 </ul>
-<blockquote>
-<p>① 原先的错误想法以及更正</p>
-</blockquote>
+<h5 id="-原先的错误想法以及更正">① 原先的错误想法以及更正</h5>
 <p>假设$x_1$ &gt; k ，当 x = k，由于<code>d[i][k]</code> 还未取得最小值, 故<code>d[i][k] + d[k][j]</code>并没有取到最大值。所以命题①错误？事实上因为i-j的桥点编号最大的必然是k，此时令 k = $x_1$ , 则 <code>d[i][k]</code>的桥点编号皆小于k, 故当 x = k 时，<code>d[i][k]</code>和<code>d[k][j] </code> ，因此<code>f[i][j]</code>可以取到最大值。 当 $x_2$ &gt; k 时同理。</p>
 <ul class="pa0">
   

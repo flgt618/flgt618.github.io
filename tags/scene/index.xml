@@ -17,16 +17,14 @@
       <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
       
       <guid>https://flgt618.github.io/post/chapter-1/</guid>
-      <description>多源最短路径算法 Floyd算法  思路
- 假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式： $$ d[u][v]=min(d[u][v],d[u][k]+d[k][v]) $$
- 代码实现
- for (int k = 1; k &amp;lt;= n; k++) for (int i = 1; i &amp;lt;= n; i++) for (int j = 1; j &amp;lt;= n; j++) dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);  潜在疑惑
- 由于d[i][k]，d[k][j]在不断更新，而不是恒定的最小值，所以如何保证d[i][j]在最后一次更新的时候，d[i][k]，d[k][j]一定是最小的 ?
+      <description>Floyd算法 思路 假设图上的任意两个点，已知两点间的路径权值，如果在图中能够找到一个点, 使其成为两点间的桥点，并且构成的新路径值小于旧路径值。则新路比旧路更短，由此可以得到一个递推公式： $$ d[u][v]=min(d[u][v],d[u][k]+d[k][v]) $$
+代码实现 for (int k = 1; k &amp;lt;= n; k++) for (int i = 1; i &amp;lt;= n; i++) for (int j = 1; j &amp;lt;= n; j++) dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]); 潜在疑惑 由于d[i][k]，d[k][j]在不断更新，而不是恒定的最小值，所以如何保证d[i][j]在最后一次更新的时候，d[i][k]，d[k][j]一定是最小的 ?
   令任意两点i和j之间的路径上可选择经过的结点集合中，桥点编号最大的是k，当k=x的时候，d[i][j]得到最小值。
   设i-x中的桥点编号最大的为$x_1$ ,x-j中编号最大的为$x_2$
   易得x&amp;gt;$x_1$ ,x&amp;gt;$x_2$ ①
   假设此时命题成立，则x=$x_1$时，d[i][x]最小，x=$x_2$ 时，d[x][j]最小
-  由此可以得到x=k的时候d[i][x]+d[x][j]已经是最小了,那么e[i][j]=min(e[i][j]，e[i][x]+e[x][j])必然可以得到最小值</description>
+  由此可以得到x=k的时候d[i][x]+d[x][j]已经是最小了,那么e[i][j]=min(e[i][j]，e[i][x]+e[x][j])必然可以得到最小值
+  ① 原先的错误想法以及更正 假设$x_1$ &amp;gt; k ，当 x = k，由于d[i][k] 还未取得最小值, 故d[i][k] + d[k][j]并没有取到最大值。所以命题①错误？事实上因为i-j的桥点编号最大的必然是k，此时令 k = $x_1$ , 则 d[i][k]的桥点编号皆小于k, 故当 x = k 时，d[i][k]和d[k][j]  ，因此f[i][j]可以取到最大值。 当 $x_2$ &amp;gt; k 时同理。</description>
     </item>
     
     <item>
